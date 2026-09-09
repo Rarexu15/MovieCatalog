@@ -1,17 +1,12 @@
 @extends('layouts.app')
-
+@section('title', 'Movie Catalog')
 @section('content')
-
-    <h1>Movie Catalog</h1>
-
-    @if (count($movies) > 0)
-        <ul>
-            @foreach ($movies as $movie)
-                @include('movies._movie-card')
-            @endforeach
-        </ul>
-    @else
-        <p>No movies found.</p>
-    @endif
-
+<h1>Movie Catalog</h1>
+@foreach ($movies as $movie)
+<h2>{{ $movie->title }}</h2>
+<p>Year: {{ $movie->year }}</p>
+<p>Genre: {{ $movie->genre }}</p>
+<p>Director: {{ $movie->director }}</p>
+<hr>
+@endforeach
 @endsection
