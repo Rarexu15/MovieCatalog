@@ -19,6 +19,13 @@ class MovieController extends Controller
             'year' => 'required|integer|min:1888|max:' . date('Y'),
             'genre' => 'required|string|max:255',
             'director' => 'required|string|max:255',
+            'rating' => 'nullable|numeric|min:0|max:5',
+            'description' => 'nullable|string|max:1000',
+            'customer_name' => 'nullable|string|max:255',
+            'rental_date' => 'nullable|date',
+            'return_date' => 'nullable|date',
+            'rental_status' => 'required|string|max:50',
+
         ]);
 
         Movie::create($validated);
@@ -32,6 +39,8 @@ class MovieController extends Controller
 
     return view('movies.index', ['movies' => $movies]);
     }
+
+    
 }
 
     // public function index()
